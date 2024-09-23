@@ -24,4 +24,7 @@ class ClienteForm(forms.Modelform):
         Model: Cliente
         fields = ['nombre', 'telefono', 'email', 'direccion']
         
-
+class VentaForm(forms.ModelForm):
+    class Meta:
+        model = Venta
+        fields = ['producto', 'cliente', 'cantidad']

@@ -1,6 +1,6 @@
 from django.db import models
+from django.contrib.auth.models import User
 
-# Create your models here.
 class Categoria(models.Model):
     nombre = models.CharField(max_length=100)
     descripcion = models.TextField()
@@ -27,13 +27,12 @@ class Producto(models.Model):
         return str(self.nombre)
 
 class Cliente(models.Model):
-    nombre = models.CharField(max_length=100)
-    correo = models.EmailField()
+    usuario = models.OneToOneField(User, on_delete=models.CASCADE)  
     telefono = models.CharField(max_length=15)
     direccion = models.TextField()
 
     def __str__(self):
-        return str(self.nombre)
+        return str(self.usuario.username)
 
 class Venta(models.Model):
     producto = models.ForeignKey(Producto, on_delete=models.CASCADE)
@@ -43,4 +42,4 @@ class Venta(models.Model):
     fecha_venta = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
-        return f'Venta {self.id} - {self.producto.nombre} a {self.cliente.nombre}'
+        return f'Venta {self.id} - {self.producto.nombre} a {self.cliente.usuario.username}'
