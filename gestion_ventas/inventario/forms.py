@@ -6,12 +6,12 @@ class CategoriaForm(forms.ModelForm):
         Model: Categoria
         fields = ['nombre', 'descripcion']
 
-class ProveedorForm(forms.Modelform):
+class ProveedorForm(forms.ModelForm):
     class Meta:
         Model: Proveedor
         Fields = ['nombre', 'contacto', 'telefono']
 
-class ProductoForm(forms.Modelform):
+class ProductoForm(forms.ModelForm):
     class Meta:
         Model: Producto
         fields = ['nombre', 'categoria', 'proveedor', 'etiquetas', 'cantidad', 'precio', 'descripcion']
@@ -19,7 +19,7 @@ class ProductoForm(forms.Modelform):
             'etiquetas': forms.CheckboxSelectMultiple(),
         }
 
-class ClienteForm(forms.Modelform):
+class ClienteForm(forms.ModelForm):
     class Meta:
         Model: Cliente
         fields = ['nombre', 'telefono', 'email', 'direccion']

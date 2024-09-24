@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Página de Inicio</title>
+    
+</head>
+<body>
+    <header>
+        <h1>VENTAS DE TECNOLOGIA</h1>
+        <nav>
+            <a href="{% url 'lista_productos' %}">Lista de Productos</a>
+            <a href="{% url 'lista_ventas' %}">Lista de Ventas</a>
+            <a href="{% url 'lista_categorias' %}">Lista de Categorías</a>
+            <a href="{% url 'lista_proveedores' %}">Lista de Proveedores</a>
+            <a href="{% url 'lista_clientes' %}">Lista de Clientes</a>
+            <a href="{% url 'registrar_venta' %}">Registrar Venta</a>
+            <a href="{% url 'registrar_categoria' %}">Registrar Categoría</a>
+            <a href="{% url 'registrar_proveedor' %}">Registrar Proveedor</a>
+            <a href="{% url 'registrar_cliente' %}">Registrar Cliente</a>
+        </nav>
+    </header>
+    <div class="content">
+        <h2>¡Explora nuestra aplicación!</h2>
+        <p>Aquí puedes gestionar productos, ventas, clientes y proveedores.</p>
+    </div>
+</body>
+</html>

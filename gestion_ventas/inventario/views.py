@@ -67,3 +67,6 @@ def registrar_cliente(request):
         form = ClienteForm()
 
     return render(request, 'ventas/registrar_cliente.html', {'form': form})
+
+def inicio(request):
+    return render(request, 'inicio.html') 
