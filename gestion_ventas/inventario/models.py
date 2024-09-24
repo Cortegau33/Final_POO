@@ -11,7 +11,7 @@ class Categoria(models.Model):
 class Proveedor(models.Model):
     nombre = models.CharField(max_length=100)
     contacto = models.CharField(max_length=100)
-    direccion = models.TextField()
+    telefono = models.CharField(max_length=15)
 
     def __str__(self):
         return str(self.nombre)
@@ -40,7 +40,6 @@ class Venta(models.Model):
     cliente = models.ForeignKey(Cliente, on_delete=models.CASCADE)
     cantidad = models.IntegerField()
     total = models.DecimalField(max_digits=10, decimal_places=2)
-    fecha_venta = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
         return f'Venta {self.id} - {self.producto.nombre} a {self.cliente.usuario.username}'

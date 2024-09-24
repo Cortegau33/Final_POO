@@ -3,28 +3,28 @@ from .models import Categoria, Proveedor, Producto, Cliente, Venta
 
 class CategoriaForm(forms.ModelForm):
     class Meta:
-        Model: Categoria
+        model = Categoria
         fields = ['nombre', 'descripcion']
 
 class ProveedorForm(forms.ModelForm):
     class Meta:
-        Model: Proveedor
-        Fields = ['nombre', 'contacto', 'telefono']
+        model = Proveedor
+        fields = ['nombre', 'contacto', 'telefono']
 
 class ProductoForm(forms.ModelForm):
     class Meta:
-        Model: Producto
-        fields = ['nombre', 'categoria', 'proveedor', 'etiquetas', 'cantidad', 'precio', 'descripcion']
+        model = Producto
+        fields = ['nombre', 'categoria', 'proveedor', 'precio', 'stock']
         widgets = {
             'etiquetas': forms.CheckboxSelectMultiple(),
         }
 
 class ClienteForm(forms.ModelForm):
     class Meta:
-        Model: Cliente
+        model = Cliente
         fields = ['nombre', 'telefono', 'email', 'direccion']
         
 class VentaForm(forms.ModelForm):
     class Meta:
         model = Venta
-        fields = ['producto', 'cliente', 'cantidad']
+        fields = ['producto', 'cliente', 'cantidad', 'total']

@@ -32,25 +32,24 @@ def registrar_categoria(request):
         form = CategoriaForm(request.POST)
         if form.is_valid():
             form.save()
-            return redirect('lista_categorias')  # Asegúrate de que 'lista_categorias' esté definido en tus URL
+            return redirect('lista_categorias')  
     else:
         form = CategoriaForm()
-
+    
     return render(request, 'ventas/registrar_categoria.html', {'form': form})
+
 
 def lista_proveedores(request):
     proveedores = Proveedor.objects.all()
     return render(request, 'ventas/lista_proveedores.html', {'proveedores': proveedores})
 
 def registrar_proveedor(request):
+    form = ProveedorForm()
     if request.method == 'POST':
         form = ProveedorForm(request.POST)
         if form.is_valid():
             form.save()
-            return redirect('lista_proveedores')  # Asegúrate de que 'lista_proveedores' esté definido en tus URL
-    else:
-        form = ProveedorForm()
-
+            return redirect('lista_proveedores')
     return render(request, 'ventas/registrar_proveedor.html', {'form': form})
 
 def lista_clientes(request):
@@ -62,7 +61,7 @@ def registrar_cliente(request):
         form = ClienteForm(request.POST)
         if form.is_valid():
             form.save()
-            return redirect('lista_clientes')  # Asegúrate de que 'lista_clientes' esté definido en tus URL
+            return redirect('lista_clientes') 
     else:
         form = ClienteForm()
 
@@ -70,3 +69,14 @@ def registrar_cliente(request):
 
 def inicio(request):
     return render(request, 'inicio.html') 
+
+def registrar_categoria(request):
+    if request.method == 'POST':
+        form = CategoriaForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('lista_categorias')  
+    else:
+        form = CategoriaForm()
+    
+    return render(request, 'ventas/registrar_categoria.html', {'form': form})
