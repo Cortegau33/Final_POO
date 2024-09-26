@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect
 from .models import Producto, Categoria, Proveedor, Cliente, Venta
-from . forms import VentaForm,Venta, CategoriaForm, ProveedorForm, ClienteForm
+from . forms import VentaForm,Venta, CategoriaForm, ProveedorForm, ClienteForm, ProductoForm
 
 def lista_productos(request):
     productos = Producto.objects.all()
@@ -80,3 +80,14 @@ def registrar_categoria(request):
         form = CategoriaForm()
     
     return render(request, 'ventas/registrar_categoria.html', {'form': form})
+
+def registrar_producto(request):
+    if request.method == 'POST':
+        form = ProductoForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('lista_productos') 
+    else:
+        form = ProductoForm()  
+
+    return render(request, 'ventas/registrar_producto.html', {'form': form})

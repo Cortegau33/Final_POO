@@ -9,9 +9,10 @@ class Categoria(models.Model):
         return str(self.nombre)
 
 class Proveedor(models.Model):
-    nombre = models.CharField(max_length=100)
-    contacto = models.CharField(max_length=100)
-    telefono = models.CharField(max_length=15)
+    nombre = models.CharField(max_length=255)
+    contacto = models.CharField(max_length=255)
+    direccion = models.CharField(max_length=255)
+    telefono = models.CharField(max_length=20)
 
     def __str__(self):
         return str(self.nombre)

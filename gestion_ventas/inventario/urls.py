@@ -2,8 +2,10 @@ from django.urls import path, include
 from django.contrib.auth import views as auth_views
 from . import views
 
+
 urlpatterns = [
     path('productos/', views.lista_productos, name='lista_productos'),
+    path('registrar-producto/', registrar_producto, name='registrar_producto'),
     path('registrar-venta/', views.registrar_venta, name='registrar_venta'),
     path('ventas/', views.lista_ventas, name='lista_ventas'),
     path('categorias/', views.lista_categorias, name='lista_categorias'),
